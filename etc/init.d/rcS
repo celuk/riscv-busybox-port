@@ -1,0 +1,10 @@
+#!/bin/sh
+mount -t proc none /proc
+mount -t sysfs none /sys
+echo " "
+echo "##################################"
+echo "#   CustomSoC Linux Booted!      #"
+echo "##################################"
+echo " "
+echo "Starting shell..."
+exec /bin/sh
