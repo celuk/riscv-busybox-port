@@ -9,8 +9,8 @@ make install;
 
 cp "/home/shc/projects/mibench/automotive/basicmath/basicmath_small" ./_install;
 "${CROSS_COMPILE}strip" ./_install/basicmath_small;
-#cp "/home/shc/projects/mibench/automotive/basicmath/runme_small.sh" ./_install;
-#cp "./logo.txt" ./_install;
+cp "/home/shc/projects/mibench/automotive/basicmath/runme_small.sh" ./_install;
+cp "./logo.txt" ./_install;
 
 cd _install;
 mkdir -p dev proc sys etc/init.d;
@@ -26,14 +26,15 @@ echo 'mount -t sysfs none /sys' >> ./etc/init.d/rcS
 #echo 'echo "#   CustomSoC Linux Booted!      #"' >> ./etc/init.d/rcS
 #echo 'echo "##################################"' >> ./etc/init.d/rcS
 #echo 'echo " "' >> ./etc/init.d/rcS
-#echo 'cat logo.txt' >> ./etc/init.d/rcS
-#echo 'echo "Starting shell..."' >> ./etc/init.d/rcS
-echo 'ls -al' >> ./etc/init.d/rcS
-echo 'chmod +x ./basicmath_small' >> ./etc/init.d/rcS
+echo 'cat logo.txt' >> ./etc/init.d/rcS
+echo 'echo "Starting shell..."' >> ./etc/init.d/rcS
+#echo 'ls -al' >> ./etc/init.d/rcS
+#echo 'chmod +x ./basicmath_small' >> ./etc/init.d/rcS
 #echo 'chmod +x ./runme_small.sh' >> ./etc/init.d/rcS
 #echo 'time ./runme_small.sh' >> ./etc/init.d/rcS
 echo './basicmath_small > output_small.txt' >> ./etc/init.d/rcS
-echo 'cat output_small.txt' >> ./etc/init.d/rcS
+#echo 'tail -n 10 output_small.txt' >> ./etc/init.d/rcS
+#echo 'cat output_small.txt' >> ./etc/init.d/rcS
 echo 'exec /bin/sh' >> ./etc/init.d/rcS
 
 chmod +x ./etc/init.d/rcS;
